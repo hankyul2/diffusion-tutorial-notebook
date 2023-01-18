@@ -1,4 +1,5 @@
 import math
+import os
 from argparse import ArgumentParser
 
 import numpy as np
@@ -186,6 +187,7 @@ def run(args):
     else:
         scaler = None
 
+    best_loss = 1000.0
     for epoch in range(1, 1+args.epoch):
         if args.distributed:
             train_dataloader.sampler.set_epoch(epoch)
@@ -198,6 +200,12 @@ def run(args):
         args.log(f"EPOCH({epoch:03}): " + " ".join([f"{k.upper()}: {v:.4f}" for k, v in metric.items()]))
         if args.use_wandb:
             args.log(metric, metric=True)
+
+        if best_loss > metric['val_total']:
+            best_loss = metric['val_total']
+            if args.is_rank_zero:
+                torch.save(model.state_dict(), os.path.join(args.log_dir, f'{args.model_name}.pth'))
+                args.log(f"Saved model (val loss: {best_loss:0.4f}) in to {args.log_dir}")
 
 
 if __name__ == '__main__':
