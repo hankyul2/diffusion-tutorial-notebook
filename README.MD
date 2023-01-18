@@ -29,15 +29,16 @@ model.sample(batch_size=16)
 
 
 `train.py` is more complicated and advanced than single jupyter notebook 
-however, it is more flexible for running various experiment. 
-So if you are considering to run various experiment, 
+however, it is more flexible for running various experiments in cmd environment. 
+So if you are considering to run various experiments, 
 we recommend you to use `train.py`, which support followings features.
 
 
 - Log on wandb
 - Run on multiple-gpu
+- Control your experiment hyperparameter in command line.
 - Enable faster training using `amp` and `channels_last`.
-- Enable trackable experiments by saving log on your computer.
+- Enable trackable experiments by saving logs on your computer.
 
 
 1. install `ddpm`.
