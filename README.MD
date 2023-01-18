@@ -1,3 +1,9 @@
+# Diffusion Tutorials
+
+
+This repository contains diffusion tutorial notebooks with easy-to-follow-code implementations.
+We hope this project help your understanding. Feel free to ask any questions.
+
 ## 1. Tutorial on diffusion via jupyter notebook
 
 
@@ -40,7 +46,7 @@ we recommend you to use `train.py`, which support followings features.
 
 3. run on single-gpu
    ```python
-   python3 train.py -c 0 --use-wandb
+   python3 train.py -c 0 
    ```
 4. run on multi-gpu
    ```python
