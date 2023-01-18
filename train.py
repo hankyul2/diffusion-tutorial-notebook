@@ -228,6 +228,7 @@ if __name__ == '__main__':
         parser.add_argument('--who', default='hankyul2', type=str)
         parser.add_argument('-c', '--cuda', default='0,', type=str)
         parser.add_argument('-p', '--print-freq', default=40, type=int)
+        parser.set_defaults(amp=True, channels_last=True)
 
         return parser
 
