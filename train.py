@@ -204,10 +204,11 @@ if __name__ == '__main__':
     def get_parser():
         parser = ArgumentParser()
         parser.add_argument('-m', '--model-name', default='iddpm', type=str)
+        parser.add_argument('--dropout', default=0.3, type=float)
         parser.add_argument('--diffusion-steps', default=4000, type=int)
         parser.add_argument('--beta-schedule', default='cosine', type=str)
 
-        parser.add_argument('-e', '--epoch', default=10, type=int)
+        parser.add_argument('-e', '--epoch', default=100, type=int)
         parser.add_argument('-lr', '--lr', default=1e-4, type=float)
         parser.add_argument('-wd', '--weight-decay', default=0, type=float)
         parser.add_argument('-b', '--batch-size', default=128, type=int)
