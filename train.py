@@ -195,7 +195,7 @@ def run(args):
                            uniform_time_sampler, diffusion, optimizer, epoch, args, scaler))
         metric.update(valid(val_dataloader, model, uniform_time_sampler, diffusion, epoch, args))
 
-        args.log(f"EPOCH({epoch}): " + " ".join([f"{k}: {v:.4f}" for k, v in metric.items()]))
+        args.log(f"EPOCH({epoch:03}): " + " ".join([f"{k.upper()}: {v:.4f}" for k, v in metric.items()]))
         if args.use_wandb:
             args.log(metric, metric=True)
 
